@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block styleLink %}
+
+<link rel="stylesheet" href="/static/css/Footer.css">
+
+{% endblock %}
+
+{% block content %}
+
+<div class='Footer' >
+    <div class="footer_body">
+      <div class="footer_title">
+        <h2>SB Local</h2>
+        <p>SB Local is your interactive guide to uncovering the unique wonders near you. Share local monuments, historical sites, and hidden gems, and explore your city with a fresh perspective.</p>
+      </div>
+      <div class="footer_options">
+        <ul>
+          <a href="/"><li >Home</li></a>
+          <a href="/city/Jaipur"><li >Search</li></a>
+          <a href="/city/Jaipur"><li >Jaipur</li></a>
+        </ul>
+        <ul>
+          <a href="/city/Hyderabad"><li >Hyderabad</li></a>
+          <a href="/city/Bengaluru"><li >Bengaluru</li></a>
+          <a href="/city/Mumbai"><li>Mumbai</li></a>
+        </ul>
+        <ul>
+          <a href="/city/Kolkata"><li>Kolkata</li></a>
+          <a href="/city/Chennai"><li >Chennai</li></a>
+          <a href="/city/Vizag"><li >Vizag</li></a>
+        </ul>
+      </div>
+    </div>
+    <hr />
+    <p class='footer_copy' >&copy; All Rights Reserved - 2024 - SB Local </p>
+</div>
+
+
+
+{% endblock %}

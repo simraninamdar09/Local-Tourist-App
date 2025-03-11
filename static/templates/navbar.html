@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block styleLink %}
+
+<link rel="stylesheet" type="text/css" href="/static/css/Navbar.css">
+
+{% endblock %}
+
+{% block content %}
+
+<div class='Navbar' >
+
+    <a href='/'><h3 >SB Local</h3></a>
+
+<div class="nav_options" style="display: none;" id='options_loggedIn'>
+    <a href='/'><p>Home</p></a>
+    <a href='/search'><p>&#128269;  Search</p></a>
+    <a href='/load-add-location'><p>Add location</p></a>
+    <a href='/load-contributions'><p>Contributions</p></a>
+    <p id="logoutBtn">logout</p> 
+</div>
+    
+<div class="nav_options" style="display: none;" id='options_loggedOut'>
+    <a href='/'><p>Home</p></a>
+    <a href='/search'><p>&#128269;  Search</p></a>
+    <a href='/login'><p>Sign In</p></a>
+</div>
+
+<script>
+
+    const myLink = document.getElementById('logoutBtn');
+
+    myLink.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        localStorage.clear();
+        for (let key in localStorage) {
+            if (localStorage.hasOwnProperty(key)) {
+                localStorage.removeItem(key);
+            }
+        }
+        window.location.href = '/';
+
+    });
+
+
+
+    function displayDivIfUserIdExists() {
+        const userId = localStorage.getItem('userId');
+
+        const options_loggedIn = document.getElementById('options_loggedIn');
+        const options_loggedOut = document.getElementById('options_loggedOut');
+
+        if (userId) {
+            options_loggedIn.style.display = 'flex';
+            options_loggedOut.style.display = 'none';
+
+        }else{
+            options_loggedIn.style.display = 'none';
+            options_loggedOut.style.display = 'flex';
+        }
+    }
+
+    window.onload = displayDivIfUserIdExists;
+</script>
+
+
+</div>
+
+
+{% endblock %}

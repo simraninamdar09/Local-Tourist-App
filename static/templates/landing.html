@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block styleLink %}
+
+<link rel="stylesheet" href="/static/css/Landing.css">
+
+{% endblock %}
+
+{% block content %}
+
+{% include "navbar.html" %}
+
+<div class='HomePage GenPagePadding' >
+    <div class="home_banner">
+      <h1 class="home_banner_title">Together, let's discover all our local wonders with <span>SB Local</span> ...</h1>
+    </div>
+
+    <div class="popular_cities_container">
+        <h2 class="popular_cities_title">Popular Cities</h2>
+        <div class="popular_cities">
+
+          <a class="popular_city" href='/city/Hyderabad'>
+              <img src='../static/img/hyderabad.jpg' alt="" />
+              <h4>Hyderabad</h4>
+          </a>
+
+          <a class="popular_city" href='/city/Mumbai'>
+            <img src='../static/img/mumbai.jpg' alt="" />
+            <h4>Mumbai</h4>
+          </a>
+
+          <a class="popular_city" href='/city/Bengaluru'>
+            <img src='../static/img/bengaluru.jpg' alt="" />
+            <h4>Bengaluru</h4>
+          </a>
+
+          <a class="popular_city" href='/city/Chennai'>
+            <img src='../static/img/chennai.jpg' alt="" />
+            <h4>Chennai</h4>
+          </a>
+
+          <a class="popular_city" href='/city/Jaipur'>
+            <img src='../static/img/jaipur.jpg' alt="" />
+            <h4>Jaipur</h4>
+          </a>
+
+          <a class="popular_city" href='/city/Kolkata'>
+            <img src='../static/img/kolkata.jpg' alt="" />
+            <h4>Kolkata</h4>
+          </a>
+
+          <a class="popular_city" href='/city/Agra'>
+            <img src='../static/img/agra.jpg' alt="" />
+            <h4>Agra</h4>
+          </a>
+
+          <a class="popular_city" href='/city/Tirupati'>
+            <img src='../static/img/tirupati.jpg' alt="" />
+            <h4>Tirupati</h4>
+          </a>
+
+        </div>
+    </div>
+
+    <div class="trending_destinations_container">
+      <h2>Trending monuments</h2>
+      <div class="trending_destinations">
+
+        {% for monument in monuments %}
+        <a href="/load-location/{{monument.id}}">
+          <div class="trending_destination" >
+            <img src="{{monument.bannerImage}}" alt="" />
+            <h4>{{monument.title}}</h4>
+          </div>
+        </a>
+        {% endfor %}
+
+        
+
+
+      </div>
+    </div>
+
+
+
+</div>
+
+{% include "Footer.html" %}
+
+{% endblock %}

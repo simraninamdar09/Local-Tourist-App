@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block styleLink %}
+
+<link rel="stylesheet" href="/static/css/Authenticate.css">
+
+{% endblock %}
+
+{% block content %}
+
+{% include "navbar.html" %}
+
+{% if isLogged %}
+    <script>
+        alert("You are registered successfully!!");
+        localStorage.setItem("isLogged", true);
+        localStorage.setItem("userId", "{{data.userId}}");
+        localStorage.setItem("username", "{{data.username}}");
+        localStorage.setItem("email", "{{data.email}}");
+        
+        window.location.href = "/";
+
+
+    </script>
+{% endif %}
+
+
+<div class="GenPagePadding AuthenticatePage">
+
+    <form class="authForm" method="post">
+        {% csrf_token %}
+        <h2>Register</h2>
+        <div class="form-floating mb-3 authFormInputs">
+            {{form.username}}
+            <label htmlFor="floatingInput">Username</label>
+        </div>
+        <div class="form-floating mb-3 authFormInputs">
+            {{form.email}}
+            <label htmlFor="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating mb-3 authFormInputs">
+            {{form.password}}
+            <label htmlFor="floatingPassword">Password</label>
+        </div>
+    
+        <button type="submit" class="btn btn-primary">Sign up</button>
+        <p>Already registered? <a href="/login"><span >Login</span></a></p>
+    </form>
+
+</div>
+
+
+{% endblock %}
